@@ -3,20 +3,20 @@
    manchete (identidade do canal, igual às thumbs), sombras com profundidade em vez de halo, superfícies do navegador
    (seleção, barra de rolagem, cursor) nas cores do canal. */
 :root {
-  --noite: #120818;
-  --noite-2: #1d0f29;
-  --cartao: #221231;
-  --borda: #3a2150;
-  --texto: #f6f1f8;
-  --texto-2: #c9b9d6;
-  --rosa: #ff3ea0;
-  --laranja: #ffa03c;
-  --ciano: #3ee8f0;
-  --raio: 16px;
+  --noite: #0a0a0f;
+  --noite-2: #12121a;
+  --cartao: #12121a;
+  --borda: #2a2a3b;
+  --texto: #f5f5f5;
+  --texto-2: #a9a9bc;
+  --rosa: #ff2d7a;
+  --laranja: #ff2d7a;
+  --ciano: #00c3ff;
+  --raio: 10px;
   --largura: 1120px;
-  --titulo: "Anton", Impact, "Arial Narrow Bold", sans-serif;
+  --titulo: "Barlow Condensed", "Arial Narrow", sans-serif;
   --corpo: "Barlow", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  --tinta-escura: #1b0b10;
+  --tinta-escura: #0a0a0f;
 }
 
 * { box-sizing: border-box; }
@@ -24,10 +24,6 @@ html { -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
   background: var(--noite);
-  background-image:
-    radial-gradient(1200px 500px at 85% -10%, rgba(255, 62, 160, .22), transparent 60%),
-    radial-gradient(900px 500px at -10% 10%, rgba(62, 232, 240, .10), transparent 60%);
-  background-attachment: fixed;
   color: var(--texto);
   font: 400 18px/1.6 var(--corpo);
   overflow-x: hidden;
@@ -63,6 +59,7 @@ a:hover { color: var(--rosa); }
   text-shadow: 0 2px 0 rgba(255, 62, 160, .55), 0 6px 18px rgba(0, 0, 0, .45);
   white-space: nowrap;
 }
+.marca img { height: 40px; width: auto; display: block; }
 .marca span {
   background: linear-gradient(90deg, var(--rosa), var(--laranja));
   -webkit-background-clip: text; background-clip: text; color: transparent; text-shadow: none;
@@ -177,8 +174,55 @@ a:hover { color: var(--rosa); }
 @media (max-width: 520px) {
   body { font-size: 16px; }
   .marca { font-size: 22px; }
+  .marca img { height: 32px; }
   .menu a { padding: 7px 10px; font-size: 14px; }
   .sol { width: 200px; height: 200px; right: -90px; top: -20px; opacity: .3; }
   .capa { padding: 40px 0 28px; }
 }
 @media (prefers-reduced-motion: reduce) { .cartao, .botao { transition: none; } .cartao:hover, .botao:hover { transform: none; } }
+
+
+/* ===== Design do projeto no Airo (23/11/2026) ===== */
+.topo { background: rgba(10, 10, 15, .9); }
+.marca img { height: 44px; width: auto; }
+.menu { align-items: center; }
+.menu a[href*="youtube.com"] {
+  background: var(--rosa); color: var(--tinta-escura); font-family: var(--titulo); font-weight: 700;
+  text-transform: uppercase; letter-spacing: .6px; border-radius: 6px; padding: 8px 16px;
+}
+.menu a[href*="youtube.com"]:hover { background: #ff5a96; color: var(--tinta-escura); }
+.capa {
+  min-height: 86vh; display: flex; align-items: center; text-align: center; padding: 80px 0;
+  background: linear-gradient(180deg, rgba(10, 10, 15, .55), rgba(10, 10, 15, .45) 60%, var(--noite)), url("topo.jpg") center / cover no-repeat;
+}
+.capa .miolo { display: flex; flex-direction: column; align-items: center; }
+.capa h1 { margin: 0 0 18px; text-shadow: none; }
+.logo-capa { width: min(560px, 86vw); height: auto; }
+.capa p { margin: 0 auto 26px; color: #d6d6e0; max-width: 520px; text-shadow: 0 2px 8px rgba(0, 0, 0, .6); }
+.botoes { justify-content: center; }
+.botao {
+  background: var(--rosa); color: var(--tinta-escura); border-radius: 6px; font-family: var(--titulo);
+  text-transform: uppercase; letter-spacing: .8px; font-size: 17px; padding: 14px 26px;
+}
+.secao { padding: 56px 0 72px; }
+.secao h2 { font-family: var(--titulo); font-weight: 800; font-size: 40px; letter-spacing: .5px; }
+.grade { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+.cartao { border-radius: var(--raio); }
+.cartao:hover { border-color: var(--rosa); }
+.selo { border-radius: 4px; font-family: var(--titulo); letter-spacing: .8px; font-size: 13px; }
+.selo.video { background: var(--ciano); color: var(--tinta-escura); }
+.duracao {
+  position: absolute; right: 10px; bottom: 10px; background: rgba(0, 0, 0, .8); color: #fff;
+  font-size: 13px; font-weight: 700; padding: 3px 7px; border-radius: 4px; font-variant-numeric: tabular-nums;
+}
+.cartao .info { padding: 14px 16px 18px; }
+.cartao h3 { font-family: var(--titulo); font-weight: 700; font-size: 21px; line-height: 1.15; }
+.data { color: var(--ciano); }
+.artigo h1, .sobre h1 { font-family: var(--titulo); font-weight: 800; letter-spacing: .3px; }
+.texto h2, .sobre h2 { font-family: var(--titulo); font-weight: 800; color: var(--rosa); }
+@media (max-width: 520px) { .capa { min-height: 70vh; } .marca img { height: 36px; } .secao h2 { font-size: 32px; } }
+
+/* logo novo TAVIN | GTA VI (23/11/2026) */
+.marca .logo { display: block; height: 40px; width: auto; }
+.logo-capa { width: min(620px, 88vw); height: auto; filter: drop-shadow(0 6px 18px rgba(0,0,0,.6)); }
+@media (max-width: 520px) { .marca .logo { height: 32px; } }
